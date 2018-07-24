@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
-using Lykke.SettingsReader.Attributes;
+using Lykke.Common.ExchangeAdapter.Server.Settings;
+using Lykke.Service.BinanceAdapter.Services;
 
 namespace Lykke.Service.BinanceAdapter.Settings
 {
@@ -7,5 +8,6 @@ namespace Lykke.Service.BinanceAdapter.Settings
     public class BinanceAdapterSettings
     {
         public DbSettings Db { get; set; }
+        public OrderBookProcessingSettings OrderBooks { get; set; }
     }
 }

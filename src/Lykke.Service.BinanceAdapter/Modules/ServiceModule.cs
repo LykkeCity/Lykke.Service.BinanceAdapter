@@ -1,7 +1,8 @@
 ﻿using Autofac;
-using Lykke.Sdk;
+using Lykke.Service.BinanceAdapter.Services;
 using Lykke.Service.BinanceAdapter.Settings;
 using Lykke.SettingsReader;
+using Microsoft.Extensions.Hosting;
 
 namespace Lykke.Service.BinanceAdapter.Modules
 {    
@@ -16,7 +17,14 @@ namespace Lykke.Service.BinanceAdapter.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
-            // Do not register entire settings in container, pass necessary settings to services which requires them
+            builder.RegisterInstance(_appSettings.CurrentValue.BinanceAdapterService.OrderBooks)
+                .AsSelf()
+                .SingleInstance();
+
+            builder.RegisterType<OrderBookPublishingService>()
+                .AsSelf()
+                .As<IHostedService>()
+                .SingleInstance();
         }
     }
 }
