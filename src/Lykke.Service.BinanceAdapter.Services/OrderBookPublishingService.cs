@@ -64,7 +64,7 @@ namespace Lykke.Service.BinanceAdapter.Services
                 .GroupBy(x => x.Asset)
                 .SelectMany(CombineWithSnapshot);
 
-            return orderBooks.FromRawOrderBooks(assets, _settings, _lf);
+            return OrderBooksSession.FromRawOrderBooks(orderBooks, _settings, _lf);
         }
 
         private IObservable<OrderBook> CombineWithSnapshot(IGroupedObservable<string, DepthUpdate> grouped)
