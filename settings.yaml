@@ -1,0 +1,40 @@
+BinanceAdapterService:
+  Db:
+    LogsConnString:
+      settings-key: BinanceAdapter-LogsConnString
+      types: [ AzureTableStorage ]
+  OrderBooks:
+    OrderBooks:
+      Durable:
+        settings-key: BinanceAdapterService-OrderBooks-OrderBooks-Durable
+      Enabled:
+        settings-key: BinanceAdapterService-OrderBooks-OrderBooks-Enabled
+      ConnectionString:
+        settings-key: RawPriceRabbitMq
+        types: [ RabbitMq ]
+      Exchanger: lykke.exchangeconnector.orderBooks.binance
+    TickPrices:
+      Durable:
+        settings-key: BinanceAdapterService-OrderBooks-TickPrices-Durable
+      Enabled:
+        settings-key: BinanceAdapterService-OrderBooks-TickPrices-Enabled
+      ConnectionString:
+        settings-key: RawPriceRabbitMq
+        types: [ RabbitMq ]
+      Exchanger: lykke.exchangeconnector.tickPrices.binance
+    OrderBookDepth:
+      settings-key: BinanceAdapterService-OrderBooks-OrderBookDepth
+    MaxEventPerSecondByInstrument:
+      settings-key: BinanceAdapterService-OrderBooks-MaxEventPerSecondByInstrument
+    AllowedAnomalisticAssets:
+      settings-key: BinanceAdapterService-OrderBooks-AllowedAnomalisticAssets
+      types: [ JsonArray ]
+MonitoringServiceClient:
+  MonitoringServiceUrl:
+    settings-key: MonitoringServiceUrl
+SlackNotifications:
+  AzureQueue:
+    ConnectionString:
+      settings-key: SlackNotificationsConnString
+      types: [ AzureTableStorage ]
+    QueueName: slack-notifications

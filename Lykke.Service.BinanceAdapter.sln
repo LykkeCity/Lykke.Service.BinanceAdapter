@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
-		settings.txt = settings.txt
+		settings.yaml = settings.yaml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lykke.Service.BinanceAdapter.Tests", "tests\Lykke.Service.BinanceAdapter.Tests\Lykke.Service.BinanceAdapter.Tests.csproj", "{A61FFDEE-5725-4650-A788-6E55EE5EFD5B}"
